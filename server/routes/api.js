@@ -21,9 +21,20 @@ router.get('/posts', function(req, res) {
                 console.log('Error getting the posts');
             } else {
                 res.json(posts);
-                console.log(posts);
             }
         });
+});
+
+router.get('/details/:id', function(req, res) {
+    post.findById(req.params.id)
+        .exec(function(err, post) {
+            if (err) {
+                console.log('Error getting the post');
+            } else {
+                res.json(post);
+            }
+        });
+    console.log('Requesting post');
 });
 
 module.exports = router;
