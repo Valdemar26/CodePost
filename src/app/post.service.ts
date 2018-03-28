@@ -16,4 +16,8 @@ export class PostService {
     return this._http.get("/api/details/" + id);
   }
 
+  insertPost(post: Post) {
+    return this._http.post('/api/posts', JSON.stringify(post));
+  }
+
 }
